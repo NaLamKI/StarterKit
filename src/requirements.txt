@@ -1,0 +1,4 @@
+git+https://github.com/Bonn-Consulting-UG/NaLamKI-SDK
+opencv-python>=4.1.1
+Pillow>=7.1.2
+folium>=0.17.0

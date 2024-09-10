@@ -2,10 +2,10 @@ import io
 import os.path
 import json
 
-from sdk.model.action.action import *
-from sdk.service import NaLamKIService
-from sdk.model.output_data import *
-from sdk.model.encoder import *
+from nalamkisdk.model.action.action import *
+from nalamkisdk.service import NaLamKIService
+from nalamkisdk.model.output_data import *
+from nalamkisdk.model.encoder import *
 
 from .model.greendetectionmodel import DummyGreenDetectionModel
 
@@ -77,7 +77,7 @@ class MyService(NaLamKIService):
         # process results for images in the input folder into a GeoOutputData object
         features = []
         for result in results:
-            image = Image(uri=result['uri'])
+            image = DataImage(uri=result['uri'])
             coords = result.get('coordinates')
             if coords is None:
                 latitude, longitude = [0, 0]

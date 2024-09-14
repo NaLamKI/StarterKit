@@ -7,7 +7,7 @@ from nalamkisdk.service import NaLamKIService
 from nalamkisdk.model.output_data import *
 from nalamkisdk.model.encoder import *
 
-from .model.greendetectionmodel import DummyGreenDetectionModel
+from model.greendetectionmodel import DummyGreenDetectionModel
 
 from PIL import Image as PilImage
 from PIL.ExifTags import TAGS, GPSTAGS

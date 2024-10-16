@@ -7,6 +7,7 @@ RUN chown -R containeruser /opt/conda
 USER containeruser
 
 COPY --chown=containeruser src /home/containeruser/src
+COPY --chown=containeruser config /home/containeruser/config
 
 WORKDIR /home/containeruser
 

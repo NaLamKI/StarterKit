@@ -25,11 +25,6 @@ class MyService(NaLamKIService):
 
         # convert the output data into the json output template format
         output_data = GeoOutputData(type="bla", features=[]) 
-        output_json = json.dumps(dataclasses.asdict(output_data), cls=NaLamKIDataEncoder)
-        print(output_json)
-        # create File from JSON String
-        output_file = io.StringIO(output_json)
-        output_file.name = 'results.json'
 
-        # Store File
-        self.save_data([output_file])
+        # Store data
+        self.save_result(output_file)

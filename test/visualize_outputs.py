@@ -19,9 +19,9 @@ def generate_map(geojson, port):
     for feature in geojson['features']:
         # This script assumes one image, one value etc., per feature
         coordinates = feature['geometry']['coordinates']
-        image_uri = feature['property']['datasets'][0]['items'][0]['images'][0]['uri']
-        value_name = feature['property']['datasets'][0]['items'][0]['values'][0]['name']
-        value = feature['property']['datasets'][0]['items'][0]['values'][0]['value']
+        image_uri = feature['properties']['datasets'][0]['items'][0]['images'][0]['uri']
+        value_name = feature['properties']['datasets'][0]['items'][0]['values'][0]['name']
+        value = feature['properties']['datasets'][0]['items'][0]['values'][0]['value']
 
         path = os.path.join('test/action/output', f"green_{image_uri}")
         image_url = f'http://localhost:{port}/{path}'
@@ -32,7 +32,7 @@ def generate_map(geojson, port):
         popup = folium.Popup(iframe, max_width=448)
 
         icon = folium.CustomIcon(image_url, icon_size=(50, 50))
-        folium.Marker(location=[coordinates['latitude'], coordinates['longitude']], icon=icon, popup=popup).add_to(m)
+        folium.Marker(location=[coordinates[1], coordinates[0]], icon=icon, popup=popup).add_to(m)
 
     # Save the map to an HTML file
     m.save('map.html')

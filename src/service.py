@@ -62,15 +62,8 @@ class MyService(NaLamKIService):
         # process the results, convert into GeoOutputData
         output_data: GeoOutputData = self._process_results(results)
 
-        # convert it to JSON
-        output_json = json.dumps(dataclasses.asdict(output_data), cls=NaLamKIDataEncoder, indent=2)
-        # create File from JSON String
-        output_file = io.StringIO(output_json)
-        output_file.name = 'results.json'
-
-
-        # store file
-        self.save_data([output_file])
+        # store data
+        self.save_result(output_file)
 
     @staticmethod
     def _process_results(results: List[dict]) -> GeoOutputData:
@@ -96,9 +89,9 @@ class MyService(NaLamKIService):
                     type='Feature',
                     geometry=GeoGeometry(
                         type='point',
-                        coordinates=GeoCoordinates(latitude=latitude, longitude=longitude)
+                        coordinates=GeoCoordinates(latitude=latitude, longitude=longitude).tojson()
                     ),
-                    property=GeoFeatureProperty(
+                    properties=GeoFeatureProperty(
                         type="BILD",
                         datasets=[Timeseries(name="BILDAUSWERTUNG", items=[items])]
                     )

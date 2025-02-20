@@ -62,8 +62,11 @@ class MyService(NaLamKIService):
         # process the results, convert into GeoOutputData
         output_data: GeoOutputData = self._process_results(results)
 
+        # convert output data to json
+        output_json = self.json_to_string(output_data)
+
         # store data
-        self.save_result(output_file)
+        self.save_result(output_json)
 
     @staticmethod
     def _process_results(results: List[dict]) -> GeoOutputData:

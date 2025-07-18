@@ -1,9 +1,9 @@
 import dataclasses
 import json
 import shutil
-from sdk.service import NaLamKIService
-from sdk.model.output_data import *
-from sdk.model.encoder import NaLamKIDataEncoder
+from nalamkisdk.service import NaLamKIService
+from nalamkisdk.model.output_data import *
+from nalamkisdk.model.encoder import NaLamKIDataEncoder
 import io
 
 class MyService(NaLamKIService):

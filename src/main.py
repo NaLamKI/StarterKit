@@ -1,5 +1,5 @@
 from service import *
-from sdk.model.action.action import *
+from nalamkisdk.model.action.action import *
 
 from dotenv import load_dotenv
 load_dotenv()

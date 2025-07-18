@@ -51,7 +51,7 @@ python test/visualize_outputs.py
 ## Build your own service
 To implement you own Service, you have to create a class which inherits from `NaLamKIService` as follows:
 ```python
-from sdk.service import NaLamKIService
+from nalamkisdk.service import NaLamKIService
 
 
 class ExampleService(NaLamKIService):
@@ -89,7 +89,7 @@ For this you can use the dataclass "GeoOutputData" to create the conform output.
 
 To save the results, serialize the GeoOutputData object to a JSON string and create an in-memory file, as follows:
 ```python
-from sdk.model.output_data import *
+from nalamkisdk.model.output_data import *
 
 # Create GeoOutputData
 output = GeoOutputData(...)
